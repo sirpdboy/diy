@@ -51,8 +51,6 @@ define Package/default-settings-chn/install
 	$(INSTALL_DATA) ./files/wifi-init.sh $(1)/lib/wifi/wifi-init.sh
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/wifi-init.init $(1)/etc/init.d/wifi-init
-	$(INSTALL_DIR) $(1)/etc/profile.d
-	$(INSTALL_BIN) ./files/sysinfo.sh $(1)/etc/profile.d/sysinfo.sh
 	$(INSTALL_DIR) $(1)/sbin
 	$(INSTALL_BIN) ./files/shutdown $(1)/sbin/shutdown
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
