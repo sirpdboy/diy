@@ -12,6 +12,9 @@ uci -q batch <<-EOF
 EOF
 uci commit system
 
-sed -i 's,downloads.openwrt.org,mirrors.tencent.com/lede,g' /etc/opkg/distfeeds.conf
+# sed -i 's,downloads.openwrt.org,mirrors.tencent.com/lede,g' /etc/opkg/distfeeds.conf
+# sed -i 's,21.02,21.02-SNAPSHOT,g' /etc/opkg/distfeeds.conf
+sed -i 's,downloads.openwrt.org,mirror.sjtu.edu.cn/openwrt,g' /etc/opkg/distfeeds.conf
+
 
 exit 0

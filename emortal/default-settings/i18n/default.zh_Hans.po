@@ -61,6 +61,12 @@ msgstr "日志"
 msgid "NAS"
 msgstr "存储"
 
+msgid "help"
+msgstr "帮助"
+
+msgid "about"
+msgstr "关于固件"
+
 msgid "Force 40MHz mode"
 msgstr "强制 40MHz 频宽"
 

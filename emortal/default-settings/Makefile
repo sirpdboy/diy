@@ -12,7 +12,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=default-settings
 PKG_VERSION:=1.1
-PKG_RELEASE:=$(COMMITCOUNT)
+PKG_RELEASE:=53
 
 PKG_LICENSE:=GPL-3.0
 
@@ -56,6 +56,8 @@ define Package/default-settings-chn/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
 	po2lmo ./i18n/default.zh_Hans.po $(1)/usr/lib/lua/luci/i18n/default.zh-cn.lmo
 	po2lmo ./i18n/more.zh_Hans.po $(1)/usr/lib/lua/luci/i18n/more.zh-cn.lmo
+	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/tools
+	$(INSTALL_DATA) ./status/status.lua $(1)/usr/lib/lua/luci/tools/status.lua
 endef
 
 $(eval $(call BuildPackage,default-settings))
