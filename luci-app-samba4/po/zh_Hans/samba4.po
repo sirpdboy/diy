@@ -17,9 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.6-dev\n"
 
-msgid "Network Shares Samba4"
-msgstr "网络共享 Samba4"
-
 msgid "Allow guests"
 msgstr "允许匿名用户"
 
