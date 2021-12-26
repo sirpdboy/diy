@@ -18,22 +18,20 @@ start()
 	do
 		echo $rfc > $fileRfc
 	done
-
-	for fileRps in $(ls /sys/class/net/eth*/queues/tx-*/xps_cpus)
-	do
-		echo $cc > $fileRps
-	done
-
+	
+	uci set network.@globals[0].packet_steering=1
+	uci commit network
+	
 	a=$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq)
 	b=$(echo -n ' : ')
 	c=$(cat /proc/cpuinfo | grep 'core id' | sort -u | wc -l)
 	d=$(echo -n ' Core ')
 	e=$(cat /proc/cpuinfo | grep 'processor' | wc -l)
 	f=$(echo -n ' Thread ')
-	g=${a}${b}${c}${d}${e}${f}
+	g=${b}${c}${d}${e}${f}
 
 	mkdir -p /tmp/sysinfo
-	echo $g > /tmp/sysinfo/model
+	sed -i "s/\(.\+\)/\1$g /" /tmp/sysinfo/model
 
 	a=$(ip address | grep ^[0-9] | awk -F: '{print $2}' | sed "s/ //g" | grep '^[e]' | grep -v "@" | grep -v "\.")
 	b=$(echo "$a" | wc -l)

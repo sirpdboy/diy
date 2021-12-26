@@ -73,8 +73,8 @@ return baseclass.extend({
 
 		// TODO: This is ugly
 		var projectlink = document.createElement('a');
-		projectlink.append('about');
-		projectlink.href = 'https://github.com/sirpdboy/openwrt18.06/issues';
+		projectlink.append('About Firmware');
+		projectlink.href = 'https://github.com/sirpdboy/openwrt/issues';
 		projectlink.target = '_blank';
 
 		var helplink = document.createElement('placeholder');

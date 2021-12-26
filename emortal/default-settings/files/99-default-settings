@@ -10,7 +10,6 @@ sed -i "s/# //g" /etc/opkg/distfeeds.conf
 
 [ -f '/bin/bash' ] && sed -i 's|root:x:0:0:root:/root:/bin/ash|root:x:0:0:root:/root:/bin/bash|g' /etc/passwd
 
-
 #echo "59.111.239.62 httpdns.n.netease.com" >> /etc/hosts && cat /etc/hosts | sort | uniq > /tmp/tmp_hosts && cat /tmp/tmp_hosts > /etc/hosts
 echo "10 2 * * * cd /usr/share/unblockneteasemusic/core/ && openssl req -new -x509 -key server.key -out server.crt -days 3650  -subj "/CN=*.music.163.com" && cd" >> /etc/crontabs/root && cat /etc/crontabs/root | sort | uniq > /tmp/tmp_cron_root && cat /tmp/tmp_cron_root > /etc/crontabs/root
 
@@ -18,7 +17,6 @@ echo "/etc/openclash/" >> /etc/sysupgrade.conf && cat /etc/sysupgrade.conf | sor
 sed -i '/option disabled/d' /etc/config/wireless
 sed -i '/set wireless.radio${devidx}.disabled/d' /lib/wifi/mac80211.sh
 wifi up
-
 
 uci set dhcp.@dnsmasq[0].cachesize='1500'
 uci set dhcp.@dnsmasq[0].min_ttl='3600'
@@ -59,11 +57,6 @@ uci del upnpd.config.enable_upnp
 uci del upnpd.config.enable_natpmp
 uci set upnpd.config.external_iface='wan'
 uci commit upnpd
-#SSRP
-uci set shadowsocksr.@global[0].gfwlist_url='https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/gfw.txt'
-uci set shadowsocksr.@global[0].chnroute_url='https://cdn.jsdelivr.net/gh/QiuSimons/Chnroute@master/dist/chnroute/chnroute.txt'
-uci commit shadowsocksr
-
 
 uci set uhttpd.main.rfc1918_filter=0
 uci set uhttpd.main.redirect_https=0
@@ -100,8 +93,5 @@ rm -f /www/luci-static/resources/view/status/include/80_upnp.js
 [ -f '/rom/etc/rpcd_10_system.js' ] && touch /etc/fucked
 rm -rf /tmp/luci-modulecache
 rm -f /tmp/luci-indexcache
-
-mv /etc/openwrt_banner /etc/banner
-mv /etc/openwrt_profile /etc/profile
 
 exit 0
