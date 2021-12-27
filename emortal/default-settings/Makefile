@@ -37,8 +37,6 @@ endef
 
 define Package/default-settings/install
 	$(INSTALL_DIR) $(1)/etc
-	$(INSTALL_DATA) ./files/openwrt_banner $(1)/etc/openwrt_banner
-	$(INSTALL_DATA) ./files/openwrt_profile $(1)/etc/openwrt_profile
 
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/99-default-settings $(1)/etc/uci-defaults/
