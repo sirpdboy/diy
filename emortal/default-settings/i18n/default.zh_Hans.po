@@ -64,6 +64,9 @@ msgstr "存储"
 msgid "help"
 msgstr "帮助"
 
+msgid "Control"
+msgstr "管控"
+
 msgid "About Firmware"
 msgstr "关于固件"
 
