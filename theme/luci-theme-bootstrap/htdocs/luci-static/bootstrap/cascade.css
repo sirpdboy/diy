@@ -533,7 +533,6 @@ textarea {
 }
 
 .cbi-value-field {
-	margin-left: 20px;
 	flex: 1;
 }
 
@@ -551,9 +550,16 @@ textarea {
 	line-height: 18px;
     color: #222;
 }
+/*
 #modal_overlay > .modal.login >form label.cbi-value-title {
    display: none !important;
   }
+  */
+  
+#modal_overlay > .modal.login >form label[for='luci_password'] ,
+#modal_overlay > .modal.login >form label[for='luci_username'] {
+  display: none !important;
+}
 
 #modal_overlay > .modal.login >form input[name='luci_username'] {
   display: none !important;
@@ -581,7 +587,8 @@ textarea {
     transition: box-shadow .15s ease;
     border-radius: .375rem;
     box-sizing: border-box;
-    margin: 1rem;
+	text-align: center!important;
+    margin: 0.5rem;
    /* background: #fff;
     color: #000; */
     
@@ -1339,6 +1346,12 @@ a.menu:after {
 	color: var(--text-color-medium);
 }
 
+body.modal-overlay-active footer {
+    text-align: center;
+    color: #fff !important;
+    text-shadow: 0 0 2px #333 !important;
+    font-size: .7rem
+ }
 footer {
 	padding-top: 17px;
 	margin-top: auto;
@@ -1359,7 +1372,7 @@ footer a {
 }
 
 footer span {
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 }
 
 footer ul.breadcrumb {
@@ -1402,7 +1415,7 @@ footer ul.breadcrumb {
 	max-width: 100%;
 }
 
-
+    
 .modal > pre,
 .modal > textarea {
 	white-space: pre-wrap;
@@ -2322,7 +2335,7 @@ div.cbi-value var.cbi-tooltip-container,
 	margin: 1rem;
     width: 5rem;
     color:#eee;
-    background: rgb(148, 143, 225);
+    background: #09c;
     border-color: rgb(148, 143, 225);
 }
 
