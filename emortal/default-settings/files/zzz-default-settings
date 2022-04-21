@@ -26,6 +26,7 @@ uci commit system
 
 #PASSWALL
 [ -f '/etc/mosdns/geoip.dat' ] && uci set passwall.@global_rules[0].v2ray_location_asset='/etc/mosdns/'
+uci set passwall.@global_forwarding[0].tcp_proxy_way='tproxy'
 uci commit passwall
 
 #Feeds 更换镜像源
@@ -73,16 +74,15 @@ echo "/etc/openclash/" >> /etc/sysupgrade.conf && cat /etc/sysupgrade.conf | sor
 
 #dnsmasq 设置以及开启 IPv6
 
-uci set dhcp.@dnsmasq[0].filter_aaaa='0'
-uci set dhcp.@dnsmasq[0].localservice='0'
-uci set dhcp.@dnsmasq[0].nonwildcard='0'
-uci del dhcp.@dnsmasq[0].rebind_protection
-uci set dhcp.@dnsmasq[0].rebind_protection='0'
 uci set dhcp.lan.ndp=''
 uci set dhcp.lan.ra='hybrid'
 uci set dhcp.lan.ndp='hybrid'
 uci set dhcp.lan.ignore='0'
 uci set dhcp.lan.ra_management='1'
+
+uci del dhcp.@dnsmasq[0].rebind_protection
+uci del dhcp.@dnsmasq[0].filteraaaa
+uci set dhcp.@dnsmasq[0].rebind_protection='0'
 uci set dhcp.lan.ra_default='1'
 uci set dhcp.lan.force='1'
 uci commit dhcp
